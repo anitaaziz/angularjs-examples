@@ -21,10 +21,7 @@
         {{message}}
     </div>
     <script>
-        //we use angular object,s module method to create a module
-        //first parameter of module is the name of module
-        //the second parameter specifies any dependencies.
-        //method chaining mechanisum.
+        //use angular object,s module method to create a module.
         var app = angular
             .module('myModule', [])
             .controller('textCtrl', function($scope) {
@@ -36,18 +33,6 @@
                 $scope.user = employee;
                 $scope.message = 'Hello World.';
         });
-
-        //creating a controller and registring it to the module.
-        //attaching message property to scope object.
-        // app.controller('textCtrl', function($scope) {
-        //     var employee = {
-        //         firstName: 'Anita',
-        //         lastName: 'Aziz',
-        //         gender: 'female'
-        //     };
-        //     $scope.user = employee;
-        //     $scope.message = 'Hello World.';
-        // })
     </script>
     
 </body>

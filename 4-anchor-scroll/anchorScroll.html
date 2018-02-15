@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>anchorScroll</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        div {
+            width: 450px;
+            border: 1px solid #000000;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body ng-controller="scrollCtrl">
+    <!-- give the button an id, when we click(ng-click) the button,call scrollTo() function
+         and specify the id of element on the page to which we want to scroll to-->
+    <button id="top" ng-click="scrollTo('bottom')">Go to bottom of the page</button>
+    <br><br>
+    <!-- static content -->
+    <div>
+        <h2>What is Angular</h2>
+        is slechts een proeftekst uit het drukkerij- en zetterijwezen. 
+        Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw. 
+        <br><br>
+        toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus.
+        te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in 
+        <br><br>
+        elektronische letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen
+        met Lorem Ipsum passages en meer recentelijk door desktop 
+        <br>
+        publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten.
+        <br>
+        <h2>What is Angular</h2>
+        is slechts een proeftekst uit het drukkerij- en zetterijwezen. 
+        Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw. 
+        <br><br>
+        toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus.
+        te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in 
+        <br><br>
+        elektronische letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen
+        met Lorem Ipsum passages en meer recentelijk door desktop 
+        publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten.
+        <h2>What is Angular</h2>
+        is slechts een proeftekst uit het drukkerij- en zetterijwezen. 
+        Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw. 
+        <br><br>
+        toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus.
+        te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in 
+        <br><br>
+        elektronische letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen
+        met Lorem Ipsum passages en meer recentelijk door desktop 
+        <br>
+        publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten.
+        <br>
+    </div>
+    <br>
+    <button id="bottom" ng-click="scrollTo('top')">Go to top of the page</button>
+</body>
+</html>

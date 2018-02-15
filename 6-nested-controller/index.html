@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script src="script.js"></script>
+
+</head>
+<body>
+	<div ng-controller="CountryCtrl">
+		{{name}}
+		<div ng-controller="ProvinceCtrl">
+			{{$parent.name}} - {{name}}
+			<div ng-controller="CityCtrl">
+				{{$parent.$parent.name}} - {{$parent.name}} - {{name}}
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

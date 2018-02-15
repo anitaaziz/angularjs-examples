@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>routing</title>
+
+    <!-- bootstrap cdn-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- core angular script -->
+    <!-- <script src="scripts/angular.min.js"></script> -->
+
+    <!-- 5-routing module -->
+   <!-- <script src="scripts/angular-route.min.js"></script> -->
+
+    <!-- CDN link of core angular and 5-routing module -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="./config/config.js"></script>
+    <script src="./config/run.js"></script>
+    <script src="./ctrl/home-ctrl.js"></script>
+    <script src="./ctrl/courses-ctrl.js"></script>
+    <script src="./ctrl/students-ctrl.js"></script>
+
+</head>
+<body>
+    <!-- HEADER AND NAVBAR -->
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                <a class="navbar-brand" href="#">Angular Routing Example</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                <!-- # symbol is basicaly used to tell the browser that we dont want to navigate away from index.html
+                instead we want the partial templates to be injected into a location in index.html -->
+                <li><a href="#/home">Home</a></li>
+                <li><a href="#/courses">Courses</a></li>
+                <li><a href="#/students">Students</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="main">
+        <!-- partial templates injection here -->
+        <ng-view></ng-view>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>controller-as-syntax</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+	<div ng-controller="DepartmentCtrl as DepartCtrl">
+		{{DepartCtrl.name}}
+		<div ng-controller="SubjectCtrl as SubCtrl">
+			{{DepartCtrl.name}} - {{SubCtrl.name}}
+			<div ng-controller="ProgLangCtrl as LangCtrl" ng-repeat="name in names">
+				{{DepartCtrl.name}} - {{SubCtrl.name}} - {{LangCtrl.name}}
+			</div>
+		</div>
+	</div>
+</body>
+</html>
