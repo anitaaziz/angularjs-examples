@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="myModule">
+
+    <div ng-controller="dataCtrl">
+
+        <div>{{country.name}}</div>
+
+        <div>{{country.capital}}</div>
+        <!-- using a binding expression with img src attr which is not a valid path so it results in 401 error -->
+        <!-- ng-src fix this error -->
+        <div>
+            <img ng-src="{{country.flag}}"
+            alt="{{country.name + ' flag'}}"
+            style="height: 100px; width: 150px">
+        </div>
+
+    </div>
+
+    <script>
+        var app = angular
+            .module('myModule', [])
+            .controller('dataCtrl', function($scope) {
+                var country = {
+                    name: 'Pakistan',
+                    capital: 'Islamabad',
+                    flag: 'flag.png'
+                };
+                $scope.country = country;
+            });
+    </script>
+    
+</body>
+</html>

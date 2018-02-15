@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="carCtrl">
+        <!-- binding expression update the view when the model changes --> 
+        <!-- ng-model directive updates the model when the view changes,it can be used with input,select and textarea -->
+        <table>
+            <tr>
+                <td>Car Name</td>
+                <td><input type="text" ng-model="car.name"></td>
+            </tr>
+            <tr>
+                <td>Car Model</td>
+                <td><input type="text" ng-model="car.model"></td>
+            </tr>
+            <tr>
+                <td>Car Color</td>
+                <td><input type="text" ng-model="car.color"></td>
+            </tr>
+
+        </table>
+        <br><br>
+        <table>
+            <tr>
+                <td>Car Name</td>
+                <td>{{car.name}}</td>
+            </tr>
+            <tr>
+                <td>Car Model</td>
+                <td>{{car.model}}</td>
+            </tr>
+            <tr>
+                <td>Car Color</td>
+                <td>{{car.color}}</td>
+            </tr>
+        </table>    
+    </div>
+    <script>
+        var app = angular
+            .module('myModule', [])
+            .controller('carCtrl', function($scope) {
+                var car = {
+                    name: 'toyota',
+                    model: '1998',
+                    color: 'black'
+                };
+                $scope.car = car;
+            });
+    </script>
+    
+</body>
+</html>

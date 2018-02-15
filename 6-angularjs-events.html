@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>events</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000000;
+            padding: 5px;
+
+        }
+    </style>   
+</head>
+<body>
+    <div ng-controller="dataCtrl">
+        <table>
+            <thead>
+                <tr>
+                    <th>Posts</th>
+                    <th>Likes</th>
+                    <th>Dislikes</th>
+                    <th>Like/Dislike</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="help in posts">
+                    <td>{{post.status}}</td>
+                    <td>{{post.likes}}</td>
+                    <td>{{post.dislikes}}</td>
+                    <td>
+                        <input type="button" value="Like" ng-click="incrementLikes(post)">
+                        <input type="button" value="Dislike" ng-click="incrementDislikes(post)">
+                    </td>               
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        var app = angular
+            .module('myApp', [])
+            .controller('dataCtrl', function($scope) {
+                //Posts array
+                var posts = [
+                    {status: 'First status', likes: 0, dislikes: 0},
+                    {status: 'Second Status', likes: 0, dislikes: 0},
+                    {status: 'Third Status', likes: 0, dislikes: 0},
+                ];
+
+                //Attach the array of posts to the $scope object
+                $scope.posts = posts;
+
+                //attach a function to the scope object to increment likes
+                $scope.incrementLikes = function(post) {
+                    post.likes++;
+                }
+
+                //attach a function to scope object to increment dislikes
+                $scope.incrementDislikes = function(post) {
+                    post.dislikes++;
+                }
+            });
+    </script>
+    
+</body>
+</html>

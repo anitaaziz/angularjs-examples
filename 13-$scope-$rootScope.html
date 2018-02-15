@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>$scope-$rootScope</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="RedCtrl">
+		Root scope color: {{rootScopeColor}}
+		<br>
+		Red controller color: {{redColor}}
+		<br>
+		Green controller color: <span style="color: aqua" ng-show="greenColor == undefined">Green color is undefined</span>
+	</div>
+	<br>
+	<div ng-controller="GreenCtrl">
+		Root scope color: {{rootScopeColor}}
+		<br>
+		Green controller color: {{greenColor}}
+		<br>
+		Red controller color: <span style="color: aqua" ng-show="redColor == undefined">Red color is undefined</span>
+	</div>
+
+	<script>
+		var app = angular
+			.module('myApp', [])
+			.controller('RedCtrl', function($scope,$rootScope) {
+				$scope.redColor = 'I am red color.';
+				$rootScope.rootScopeColor = 'I am rootScope color.';
+			})
+			.controller('GreenCtrl', function($scope) {
+				$scope.greenColor = 'I am green color.';
+			});
+	</script>
+</body>
+</html>

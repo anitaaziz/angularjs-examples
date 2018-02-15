@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ng-Show/Hide</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000000;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="staffCtrl">
+        <input type="checkbox" ng-model="hideSalary"> Hide Salary
+        <br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th> 
+                    <th>Gender</th>
+                    <th>City</th> 
+                    <th ng-hide="hideSalary">Salary</th>                 
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.city }}</td>
+                    <td ng-hide="hideSalary">{{ employee.salary }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var app = angular
+            .module('myApp', [])
+            .controller('staffCtrl', function($scope) {
+                var employees = [
+                    {name: 'Anita', gender: 'female', salary: 50000, city: 'london'},
+                    {name: 'Farah', gender: 'female', salary: 70000, city: 'Islamabad'},
+                    {name: 'Asif', gender: 'Male', salary: 80000, city: 'Doha'},
+                    {name: 'Maya', gender: 'female', salary: 90000, city: 'Newyork'}
+                ];
+
+                $scope.employees = employees;
+
+            });
+    </script>
+</body>
+</html>

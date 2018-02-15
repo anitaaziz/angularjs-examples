@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>search filter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000000;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+<body ng-app="myApp">
+    <div ng-controller="staffCtrl">
+        <input type="text" placeholder="Search name" ng-model="searchText.name">
+        <input type="text" placeholder="Search city" ng-model="searchText.city">
+        <input type="checkbox" ng-model="exactMatch"> Exact Match
+        <!-- If we want to search in a specfic column we will add that property value to ng-model e.g ng-model = 'searchText.name' -->
+        <br><br>
+        <table>
+            <tr>
+                <th>Name</th> 
+                <th>Gender</th>
+                <th>Salary</th> 
+                <th>City</th>                 
+            </tr>
+            <tr ng-repeat="employee in employees | filter: searchText : exactMatch">
+                <td>{{employee.name}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.salary}}</td>
+                <td>{{employee.city}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var app = angular
+            .module('myApp', [])
+            .controller('staffCtrl', function($scope) {
+                var employees = [
+                    {name: 'Anita', gender: 'female', salary: 50000, city: 'london'},
+                    {name: 'Farah', gender: 'female', salary: 70000, city: 'Islamabad'},
+                    {name: 'Asif', gender: 'Male', salary: 80000, city: 'Doha'},
+                    {name: 'Maya', gender: 'female', salary: '90000', city: 'Newyork'}
+                ];
+                $scope.employees = employees;
+            });
+    </script>
+</body>
+</html>

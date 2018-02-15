@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+
+</head>
+<body ng-app="myModule">
+    <div ng-controller="listCtrl">
+        <ul>
+            <li ng-repeat="country in countries">
+                {{country.name}} - Index = {{$index}}
+                <ul>
+                    <li ng-repeat="city in country.cities">
+                        {{city.name}} - Parent Index = {{$parent.$index}}, Index = {{$index}}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var app = angular
+            .module('myModule', [])
+            .controller('listCtrl', function($scope) {
+                var countries = [
+                    {
+                        name: 'USA',
+                        cities: [
+                            {name: 'Newyork'},
+                            {name: 'Boston'},
+                            {name: 'Wahington'}
+                        ]
+                    },
+                    {
+                        name: 'Canada',
+                        cities: [
+                            {name: 'Toronto'},
+                            {name: 'Regina'},
+                            {name: 'Atlanta'}
+                        ]
+                    },
+                    {
+                        name: 'Germany',
+                        cities: [
+                            {name: 'Berlin'},
+                            {name: 'Struggart'},
+                            {name: 'Leverna'}
+                        ]
+                    }
+                ]
+                $scope.countries = countries;
+            });
+    </script>
+    
+</body>
+</html>

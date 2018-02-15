@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+
+</head>
+<!-- associating the module with ng-app directive -->
+<body ng-app="myModule">
+    <!-- ng-controller invokes the control -->
+    <!-- This controller is responsile for this specific div,its scope is limited to this element-->
+    <!-- through the binding expression {{message}},we are reading message property from the scope object  -->
+    <div ng-controller="textCtrl">
+        Employee Name: {{ user.firstName + ' ' + user.lastName }}
+        <br>
+        Employee gender: {{user.gender}}      
+        <br>
+        {{message}}
+    </div>
+    <script>
+        //we use angular object,s module method to create a module
+        //first parameter of module is the name of module
+        //the second parameter specifies any dependencies.
+        //method chaining mechanisum.
+        var app = angular
+            .module('myModule', [])
+            .controller('textCtrl', function($scope) {
+                var employee = {
+                    firstName: 'Anita',
+                    lastName: 'Aziz',
+                    gender: 'female'
+                };
+                $scope.user = employee;
+                $scope.message = 'Hello World.';
+        });
+
+        //creating a controller and registring it to the module.
+        //attaching message property to scope object.
+        // app.controller('textCtrl', function($scope) {
+        //     var employee = {
+        //         firstName: 'Anita',
+        //         lastName: 'Aziz',
+        //         gender: 'female'
+        //     };
+        //     $scope.user = employee;
+        //     $scope.message = 'Hello World.';
+        // })
+    </script>
+    
+</body>
+</html>
